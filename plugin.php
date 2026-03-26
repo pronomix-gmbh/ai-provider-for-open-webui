@@ -7,7 +7,7 @@
  * Requires PHP:      7.4
  * Requires Plugins:  ai
  * Version:           1.2.0
- * Author:            Dirk Drutschmann, pronomiX GmbH
+ * Author:            pronomiX GmbH
  * Author URI:        https://www.pronomix.de
  * License:           GPL-2.0-or-later
  * License URI:       https://spdx.org/licenses/GPL-2.0-or-later.html
@@ -15,6 +15,7 @@
  * Domain Path:       /languages
  *
  * @package OBenWeb\AiProviderForOpenWebUI
+ * @author Dirk Drutschmann
  */
 
 declare( strict_types=1 );
