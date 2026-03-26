@@ -8,70 +8,70 @@ Requires PHP:      7.4
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
-Stellt Open WebUI als Provider für den WordPress AI Client bereit.
+Provides Open WebUI as a provider for the WordPress AI Client.
 
 == Description ==
 
-AI Provider for Open WebUI verbindet den WordPress AI Client mit deiner Open-WebUI-Instanz.
+AI Provider for Open WebUI connects the WordPress AI Client to your Open WebUI instance.
 
-Das Plugin ergänzt einen eigenen Connector und eine übersichtliche Einstellungsseite unter **Einstellungen > Open WebUI**.
+The plugin adds a dedicated connector and a focused settings page under **Settings > Open WebUI**.
 
-Funktionen im Überblick:
+Features:
 
-* Verbindung zu Open WebUI über deine Basis-URL und deinen API-Key
-* Automatische Modell-Erkennung über `GET /api/models`
-* Text-Generierung über `POST /api/chat/completions`
-* Auswahl eines bevorzugten Modells für Text, Bild und Vision (sofern vom Modell unterstützt)
-* Saubere Integration in die Connector-Verwaltung des AI-Plugins
-* Übersetzbar nach WordPress-Standard (Text Domain: `ai-provider-for-open-webui`)
+* Connect to Open WebUI using a base URL and API key.
+* Discover available models via `GET /api/models`.
+* Generate text via `POST /api/chat/completions`.
+* Select one preferred model for text, image, and vision requests (if the model supports these capabilities).
+* Integrate with the existing AI connector management in WordPress.
+* Translation-ready according to WordPress standards (text domain: `ai-provider-for-open-webui`).
 
-Hinweis:
-Die Endpunkt-Erweiterung `/api` wird intern ergänzt. Trage nur die Open-WebUI-Basis-URL ein.
+Important:
+Do not append `/api` to the configured URL. The plugin handles endpoint paths automatically.
 
 == Installation ==
 
-1. Installiere und aktiviere das WordPress AI Plugin (AI Client).
-2. Lade dieses Plugin nach `/wp-content/plugins/ai-provider-for-open-webui/` hoch.
-3. Aktiviere **AI Provider for Open WebUI** in WordPress.
-4. Öffne **Einstellungen > Open WebUI**.
-5. Hinterlege dort:
-* Open-WebUI-URL (z. B. `http://localhost:3000`)
-* API-Key aus Open WebUI (`Settings > Account`)
-* Optional: bevorzugtes Modell
+1. Install and activate the WordPress AI plugin (AI Client).
+2. Upload this plugin to `/wp-content/plugins/ai-provider-for-open-webui/`.
+3. Activate **AI Provider for Open WebUI**.
+4. Open **Settings > Open WebUI**.
+5. Configure:
+* Open WebUI URL (for example `http://localhost:3000`)
+* API key from Open WebUI (`Settings > Account`)
+* Optional preferred model
 
 == Screenshots ==
 
-1. Open-WebUI-Connector im AI-Plugin mit Verbindungsstatus.
-2. Open-WebUI-Einstellungsseite mit URL, API-Key und Modellauswahl.
+1. Open WebUI connector card in the AI plugin, including connection status.
+2. Open WebUI settings page with URL, API key, and preferred model selection.
 
 == Frequently Asked Questions ==
 
-= Welche URL soll ich eintragen? =
+= Which URL should I enter? =
 
-Die Basis-URL deiner Open-WebUI-Instanz, zum Beispiel:
+Use the base URL of your Open WebUI instance, for example:
 
-* `http://localhost:3000` (lokal)
-* `https://ai.deine-domain.tld` (gehostet)
+* `http://localhost:3000` for local setups
+* `https://ai.example.com` for hosted setups
 
-Bitte kein `/api` anhängen.
+Do not append `/api`.
 
-= Wo finde ich den API-Key? =
+= Where can I create an API key? =
 
-In Open WebUI unter **Settings > Account**.
+In Open WebUI, open **Settings > Account** and create or copy your key.
 
-= Warum sehe ich die Meldung „The AI plugin requires a valid AI Connector …“? =
+= Why do I see “The AI plugin requires a valid AI Connector …”? =
 
-Diese Meldung erscheint, wenn im AI-Plugin kein gültiger Connector aktiv ist.
-Prüfe:
+This message appears when no valid connector is available for the AI plugin.
+Check the following:
 
-* AI-Plugin ist aktiv
-* Open-WebUI-URL ist erreichbar
-* API-Key ist gültig
-* Connector „Open WebUI“ ist verbunden
+* The AI plugin is active.
+* The Open WebUI URL is reachable.
+* The API key is valid.
+* The Open WebUI connector is connected.
 
-= Kann ich Umgebungsvariablen verwenden? =
+= Can I use environment variables? =
 
-Ja:
+Yes:
 
 * `OPENWEBUI_BASE_URL`
 * `OPENWEBUI_API_KEY`
@@ -79,36 +79,36 @@ Ja:
 
 == External Services ==
 
-Dieses Plugin spricht mit einer externen Open-WebUI-API, sobald AI-Funktionen genutzt werden.
+This plugin sends requests to your configured Open WebUI API endpoint when AI features are used.
 
 Service:
 
-* Open WebUI API an der von dir konfigurierten URL
+* Open WebUI API at the URL you configure in plugin settings.
 
-Übertragene Daten:
+Data sent:
 
-* Prompts und Kontextdaten der angeforderten AI-Funktion
-* Modellname
-* API-Key (als Authentifizierung gegenüber deiner Open-WebUI-Instanz)
+* Prompts and request context required for the selected AI feature.
+* Requested model identifier.
+* API key for authentication against your Open WebUI instance.
 
-Zeitpunkt der Übertragung:
+When data is sent:
 
-* Nur bei aktiver Nutzung von AI-Funktionen (z. B. Generierung, Zusammenfassung, Alt-Text)
+* Only when AI features are actively used (for example generation, summarization, or alt text).
 
-Rechtsgrundlage/Verantwortung:
+Responsibility:
 
-* Die konkrete Datenverarbeitung hängt von deiner Open-WebUI-Instanz und deren Backend-Provider(n) ab.
-* Du bist für die datenschutzkonforme Konfiguration deiner Instanz verantwortlich.
+* Actual downstream processing depends on your Open WebUI setup and any backend providers used by that setup.
+* You are responsible for compliant operation and privacy configuration of your Open WebUI environment.
 
-Projekt-/Branding-Informationen:
+Project and branding information:
 
 * https://docs.openwebui.com/brand/
 
 == Branding and Rights ==
 
-Dieses Plugin enthält das offizielle Open-WebUI-Logo zur Provider-Kennzeichnung.
+This plugin includes the official Open WebUI logo for provider identification.
 
-Quelle und Nutzungshinweise:
+Source and usage notes:
 
 * `third-party-notices.txt`
 
@@ -116,19 +116,19 @@ Quelle und Nutzungshinweise:
 
 = 1.2.0 - 2026-03-26 =
 
-* Konfiguration auf ein bevorzugtes Open-WebUI-Modell vereinfacht
-* Fallback-Handling auf Basis von Modell-Fähigkeiten für Bild- und Alt-Text-Funktionen ergänzt
-* Erkennung von Modell-Fähigkeiten verbessert, um nicht unterstützte Routen zu vermeiden
+* Simplified configuration to a single preferred Open WebUI model.
+* Added capability-based fallback handling for image and alt-text features.
+* Improved model capability detection to avoid routing unsupported features.
 
 = 1.1.0 - 2026-03-26 =
 
-* Bevorzugtes Modell mit manuellem Fallback-Feld und Modellvorschlägen ergänzt
-* Standard-Timeout für Open-WebUI-Requests ergänzt (`OPENWEBUI_REQUEST_TIMEOUT`)
-* Verhalten der Einstellungsseite und Connector-Synchronisierung verbessert
+* Added preferred model selection with manual fallback input and model suggestions.
+* Added request timeout handling (`OPENWEBUI_REQUEST_TIMEOUT`).
+* Improved settings page behavior and connector synchronization.
 
 = 1.0.0 - 2026-03-26 =
 
-* Erstveröffentlichung
-* Open-WebUI-Provider für den WordPress AI Client registriert
-* Einstellungsseite für URL und API-Key ergänzt
-* Modell-Erkennung über die Open-WebUI-API implementiert
+* Initial release.
+* Registered Open WebUI as a provider for the WordPress AI Client.
+* Added settings page for URL and API key.
+* Added model discovery via the Open WebUI API.
