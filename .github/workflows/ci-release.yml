@@ -1,0 +1,83 @@
+name: CI und Release
+
+on:
+  push:
+    branches:
+      - "**"
+    tags:
+      - "v*"
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test-build:
+    name: Test und Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: PHP einrichten
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.2"
+          coverage: none
+          tools: composer:v2
+
+      - name: Composer validieren
+        run: composer validate --strict
+
+      - name: Abhängigkeiten installieren
+        run: composer install --prefer-dist --no-interaction --no-progress
+
+      - name: Coding Standards prüfen
+        run: composer lint
+
+      - name: Tests ausführen
+        run: composer test
+
+      - name: Release-Build erstellen
+        run: composer build
+
+      - name: Build entpacken für Plugin Check
+        run: |
+          ZIP_FILE="$(ls dist/*.zip | head -n 1)"
+          unzip -q "$ZIP_FILE" -d plugin-build
+          echo "PLUGIN_BUILD_DIR=$(find plugin-build -mindepth 1 -maxdepth 1 -type d | head -n 1)" >> "$GITHUB_ENV"
+
+      - name: Plugin Check (Plugin Repo)
+        uses: wordpress/plugin-check-action@v1
+        with:
+          build-dir: ${{ env.PLUGIN_BUILD_DIR }}
+          slug: ai-provider-for-openwebui
+          wp-version: latest
+          categories: plugin_repo
+
+      - name: Build-Artefakt hochladen
+        uses: actions/upload-artifact@v4
+        with:
+          name: plugin-build
+          path: dist/*.zip
+          if-no-files-found: error
+
+  release:
+    name: GitHub Release
+    needs: test-build
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/v')
+    permissions:
+      contents: write
+
+    steps:
+      - name: Build-Artefakt herunterladen
+        uses: actions/download-artifact@v4
+        with:
+          name: plugin-build
+          path: dist
+
+      - name: GitHub Release erstellen
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/*.zip
+          generate_release_notes: true

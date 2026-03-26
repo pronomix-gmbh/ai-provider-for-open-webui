@@ -1,0 +1,19 @@
+# Composer
+/vendor/
+
+# Build artifacts
+/dist/
+/*.zip
+
+# PHPUnit
+/.phpunit.result.cache
+
+# IDE
+/.idea/
+/.vscode/
+
+# macOS
+.DS_Store
+
+# Logs
+*.log
