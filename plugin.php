@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name:       AI Provider for Open WebUI
- * Plugin URI:        https://github.com/pronomix-gmbh/ai-provider-for-openwebui.git
+ * Plugin URI:        https://github.com/pronomix-gmbh/ai-provider-for-open-webui.git
  * Description:       Open WebUI provider for the WordPress AI Client.
  * Requires at least: 6.7
  * Requires PHP:      7.4
@@ -11,7 +11,7 @@
  * Author URI:        https://www.pronomix.de
  * License:           GPL-2.0-or-later
  * License URI:       https://spdx.org/licenses/GPL-2.0-or-later.html
- * Text Domain:       ai-provider-for-openwebui
+ * Text Domain:       ai-provider-for-open-webui
  * Domain Path:       /languages
  *
  * @package OBenWeb\AiProviderForOpenWebUI
@@ -65,7 +65,7 @@ function check_php_version(): bool {
 				requirement_notice(
 					sprintf(
 						/* translators: 1: Required PHP version, 2: Current PHP version */
-						__( 'The Open WebUI Provider plugin requires PHP version %1$s or higher. You are running PHP version %2$s.', 'ai-provider-for-openwebui' ),
+						__( 'The Open WebUI Provider plugin requires PHP version %1$s or higher. You are running PHP version %2$s.', 'ai-provider-for-open-webui' ),
 						AI_PROVIDER_FOR_OPENWEBUI_MIN_PHP_VERSION,
 						PHP_VERSION
 					)
@@ -97,7 +97,7 @@ function check_wp_version(): bool {
 				requirement_notice(
 					sprintf(
 						/* translators: 1: Required WordPress version, 2: Current WordPress version */
-						__( 'The Open WebUI Provider plugin requires WordPress version %1$s or higher. You are running WordPress version %2$s.', 'ai-provider-for-openwebui' ),
+						__( 'The Open WebUI Provider plugin requires WordPress version %1$s or higher. You are running WordPress version %2$s.', 'ai-provider-for-open-webui' ),
 						AI_PROVIDER_FOR_OPENWEBUI_MIN_WP_VERSION,
 						$wp_version
 					)
@@ -137,7 +137,7 @@ function load(): void {
 				requirement_notice(
 					sprintf(
 						/* translators: %s: composer install command */
-						esc_html__( 'Your installation of the Open WebUI Provider plugin is incomplete. Please run %s.', 'ai-provider-for-openwebui' ),
+						esc_html__( 'Your installation of the Open WebUI Provider plugin is incomplete. Please run %s.', 'ai-provider-for-open-webui' ),
 						'<code>composer install</code>'
 					)
 				);

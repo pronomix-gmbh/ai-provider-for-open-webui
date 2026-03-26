@@ -1,5 +1,5 @@
 {
-	"name": "obenweb/ai-provider-for-openwebui",
+	"name": "obenweb/ai-provider-for-open-webui",
 	"description": "OpenWebUI provider for the WordPress AI Client.",
 	"type": "wordpress-plugin",
 	"license": "GPL-2.0-or-later",

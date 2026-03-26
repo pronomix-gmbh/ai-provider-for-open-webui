@@ -87,7 +87,7 @@ class OpenWebUIProvider extends AbstractApiProvider {
 
 		if ( version_compare( AiClient::VERSION, '1.2.0', '>=' ) ) {
 			if ( function_exists( '__' ) ) {
-				$provider_meta[] = __( 'Text generation through Open WebUI via its API-compatible chat endpoint.', 'ai-provider-for-openwebui' );
+				$provider_meta[] = __( 'Text generation through Open WebUI via its API-compatible chat endpoint.', 'ai-provider-for-open-webui' );
 			} else {
 				$provider_meta[] = 'Text generation through Open WebUI via its API-compatible chat endpoint.';
 			}

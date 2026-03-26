@@ -22,9 +22,9 @@ use WordPress\AiClient\AiClient;
  */
 class OpenWebUISettings {
 
-	private const OPTION_GROUP = 'ai-provider-for-openwebui-settings';
+	private const OPTION_GROUP = 'ai-provider-for-open-webui-settings';
 	private const OPTION_NAME  = 'ai_provider_for_openwebui_settings';
-	private const PAGE_SLUG    = 'ai-provider-for-openwebui';
+	private const PAGE_SLUG    = 'ai-provider-for-open-webui';
 	private const SECTION_ID   = 'ai_provider_for_openwebui_main';
 	private const AJAX_ACTION  = 'ai_provider_for_openwebui_list_models';
 	private const NONCE_ACTION = 'ai_provider_for_openwebui_nonce';
@@ -66,7 +66,7 @@ class OpenWebUISettings {
 
 		add_settings_field(
 			self::OPTION_NAME . '_host',
-			__( 'Open WebUI URL', 'ai-provider-for-openwebui' ),
+			__( 'Open WebUI URL', 'ai-provider-for-open-webui' ),
 			array( $this, 'render_host_field' ),
 			self::PAGE_SLUG,
 			self::SECTION_ID,
@@ -75,7 +75,7 @@ class OpenWebUISettings {
 
 		add_settings_field(
 			self::OPTION_NAME . '_api_key',
-			__( 'API Key', 'ai-provider-for-openwebui' ),
+			__( 'API Key', 'ai-provider-for-open-webui' ),
 			array( $this, 'render_api_key_field' ),
 			self::PAGE_SLUG,
 			self::SECTION_ID,
@@ -84,7 +84,7 @@ class OpenWebUISettings {
 
 		add_settings_field(
 			self::OPTION_NAME . '_model',
-			__( 'Available Models', 'ai-provider-for-openwebui' ),
+			__( 'Available Models', 'ai-provider-for-open-webui' ),
 			array( $this, 'render_available_models_field' ),
 			self::PAGE_SLUG,
 			self::SECTION_ID,
@@ -99,8 +99,8 @@ class OpenWebUISettings {
 	 */
 	public function register_settings_screen(): void {
 		add_options_page(
-			__( 'Open WebUI Settings', 'ai-provider-for-openwebui' ),
-			__( 'Open WebUI', 'ai-provider-for-openwebui' ),
+			__( 'Open WebUI Settings', 'ai-provider-for-open-webui' ),
+			__( 'Open WebUI', 'ai-provider-for-open-webui' ),
 			'manage_options',
 			self::PAGE_SLUG,
 			array( $this, 'render_screen' )
@@ -151,14 +151,14 @@ class OpenWebUISettings {
 			<h1><?php echo esc_html( get_admin_page_title() ); ?></h1>
 			<p>
 				<?php
-				echo esc_html__( 'Configure your Open WebUI URL and API key for model access. You can create an API key in Open WebUI under Settings > Account.', 'ai-provider-for-openwebui' );
+				echo esc_html__( 'Configure your Open WebUI URL and API key for model access. You can create an API key in Open WebUI under Settings > Account.', 'ai-provider-for-open-webui' );
 				?>
 			</p>
 			<p>
 				<?php
 				printf(
 					/* translators: 1: code tag, 2: closing code tag */
-					esc_html__( 'Default URL is %1$shttp://localhost:3000%2$s. The endpoint path %1$s/api%2$s is handled automatically by this plugin.', 'ai-provider-for-openwebui' ),
+					esc_html__( 'Default URL is %1$shttp://localhost:3000%2$s. The endpoint path %1$s/api%2$s is handled automatically by this plugin.', 'ai-provider-for-open-webui' ),
 					'<code>',
 					'</code>'
 				);
@@ -198,7 +198,7 @@ class OpenWebUISettings {
 			<?php
 			printf(
 				/* translators: 1: code tag, 2: closing code tag */
-				esc_html__( 'Enter the Open WebUI base URL only (for example %1$shttp://localhost:3000%2$s). Do not append %1$s/api%2$s.', 'ai-provider-for-openwebui' ),
+				esc_html__( 'Enter the Open WebUI base URL only (for example %1$shttp://localhost:3000%2$s). Do not append %1$s/api%2$s.', 'ai-provider-for-open-webui' ),
 				'<code>',
 				'</code>'
 			);
@@ -229,7 +229,7 @@ class OpenWebUISettings {
 		/>
 		<p class="description">
 			<?php
-			echo esc_html__( 'Create the key in Open WebUI (Settings > Account). If AI Client credentials are configured separately, that takes precedence.', 'ai-provider-for-openwebui' );
+			echo esc_html__( 'Create the key in Open WebUI (Settings > Account). If AI Client credentials are configured separately, that takes precedence.', 'ai-provider-for-open-webui' );
 			?>
 		</p>
 
@@ -249,7 +249,7 @@ class OpenWebUISettings {
 		</div>
 		<p class="description">
 			<?php
-			echo esc_html__( 'Models are loaded from your Open WebUI instance.', 'ai-provider-for-openwebui' );
+			echo esc_html__( 'Models are loaded from your Open WebUI instance.', 'ai-provider-for-open-webui' );
 			?>
 		</p>
 
@@ -276,7 +276,7 @@ class OpenWebUISettings {
 		$version      = isset( $asset['version'] ) ? $asset['version'] : false;
 
 		wp_enqueue_script(
-			'ai-provider-for-openwebui-settings',
+			'ai-provider-for-open-webui-settings',
 			plugins_url( 'build/admin/settings.js', $plugin_dir . 'plugin.php' ),
 			$dependencies,
 			$version,
@@ -284,13 +284,13 @@ class OpenWebUISettings {
 		);
 
 		wp_set_script_translations(
-			'ai-provider-for-openwebui-settings',
-			'ai-provider-for-openwebui',
+			'ai-provider-for-open-webui-settings',
+			'ai-provider-for-open-webui',
 			AI_PROVIDER_FOR_OPENWEBUI_PLUGIN_DIR . 'languages'
 		);
 
 		wp_localize_script(
-			'ai-provider-for-openwebui-settings',
+			'ai-provider-for-open-webui-settings',
 			'aiProviderForOpenWebUISettings',
 			array(
 				'ajaxUrl' => esc_url( admin_url( 'admin-ajax.php' ) . '?action=' . self::AJAX_ACTION . '&_wpnonce=' . wp_create_nonce( self::NONCE_ACTION ) ),
@@ -307,18 +307,18 @@ class OpenWebUISettings {
 		check_ajax_referer( self::NONCE_ACTION );
 
 		if ( ! current_user_can( 'manage_options' ) ) {
-			wp_send_json_error( __( 'Insufficient permissions.', 'ai-provider-for-openwebui' ), 403 );
+			wp_send_json_error( __( 'Insufficient permissions.', 'ai-provider-for-open-webui' ), 403 );
 		}
 
 		if ( ! class_exists( AiClient::class ) ) {
-			wp_send_json_error( __( 'WordPress AI Client is not available.', 'ai-provider-for-openwebui' ), 500 );
+			wp_send_json_error( __( 'WordPress AI Client is not available.', 'ai-provider-for-open-webui' ), 500 );
 		}
 
 		$provider_id = 'openwebui';
 		$registry    = AiClient::defaultRegistry();
 
 		if ( ! $registry->hasProvider( $provider_id ) ) {
-			wp_send_json_error( __( 'AI provider not found.', 'ai-provider-for-openwebui' ), 404 );
+			wp_send_json_error( __( 'AI provider not found.', 'ai-provider-for-open-webui' ), 404 );
 		}
 
 		$provider_classname = $registry->getProviderClassName( $provider_id );
@@ -331,7 +331,7 @@ class OpenWebUISettings {
 			wp_send_json_success( $model_metadata_objects );
 		} catch ( \Throwable $e ) {
 			/* translators: %s: Error message. */
-			wp_send_json_error( sprintf( __( 'Could not list models from Open WebUI. Check URL/API key. Error: %s', 'ai-provider-for-openwebui' ), $e->getMessage() ), 500 );
+			wp_send_json_error( sprintf( __( 'Could not list models from Open WebUI. Check URL/API key. Error: %s', 'ai-provider-for-open-webui' ), $e->getMessage() ), 500 );
 		}
 	}
 

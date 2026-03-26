@@ -183,8 +183,8 @@ class Plugin {
 	public function plugin_action_links( array $links ): array {
 		$settings_link = sprintf(
 			'<a href="%1$s">%2$s</a>',
-			admin_url( 'options-general.php?page=ai-provider-for-openwebui' ),
-			esc_html__( 'Settings', 'ai-provider-for-openwebui' )
+			admin_url( 'options-general.php?page=ai-provider-for-open-webui' ),
+			esc_html__( 'Settings', 'ai-provider-for-open-webui' )
 		);
 
 		array_unshift( $links, $settings_link );

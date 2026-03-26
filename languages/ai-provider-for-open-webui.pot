@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Manual\n"
-"X-Domain: ai-provider-for-openwebui\n"
+"X-Domain: ai-provider-for-open-webui\n"
 
 #. translators: 1: Required PHP version, 2: Current PHP version
 #: plugin.php:67

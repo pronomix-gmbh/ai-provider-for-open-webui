@@ -50,7 +50,7 @@ jobs:
         uses: wordpress/plugin-check-action@v1
         with:
           build-dir: ${{ env.PLUGIN_BUILD_DIR }}
-          slug: ai-provider-for-openwebui
+          slug: ai-provider-for-open-webui
           wp-version: trunk
           categories: plugin_repo
 

@@ -25,14 +25,14 @@
 			return;
 		}
 
-		status.textContent = __( 'Loading models...', 'ai-provider-for-openwebui' );
+		status.textContent = __( 'Loading models...', 'ai-provider-for-open-webui' );
 
 		apiFetch( { url: settings.ajaxUrl } )
 			.then( function ( response ) {
 				if ( ! response || ! response.success || ! Array.isArray( response.data ) ) {
 					status.textContent = ( response && typeof response.data === 'string' )
 						? response.data
-						: __( 'Failed to load models.', 'ai-provider-for-openwebui' );
+						: __( 'Failed to load models.', 'ai-provider-for-open-webui' );
 					status.style.color = ERROR_COLOR;
 					return;
 				}
@@ -42,7 +42,7 @@
 
 				if ( models.length === 0 ) {
 					var empty = document.createElement( 'p' );
-					empty.textContent = __( 'No models found in Open WebUI.', 'ai-provider-for-openwebui' );
+					empty.textContent = __( 'No models found in Open WebUI.', 'ai-provider-for-open-webui' );
 					container.appendChild( empty );
 					return;
 				}
@@ -53,7 +53,7 @@
 						'%d model available:',
 						'%d models available:',
 						models.length,
-						'ai-provider-for-openwebui'
+						'ai-provider-for-open-webui'
 					),
 					models.length
 				);
@@ -77,7 +77,7 @@
 				container.appendChild( list );
 			} )
 			.catch( function ( error ) {
-				var fallback = __( 'Could not connect to load models.', 'ai-provider-for-openwebui' );
+				var fallback = __( 'Could not connect to load models.', 'ai-provider-for-open-webui' );
 				status.textContent = error && typeof error.message === 'string' ? error.message : fallback;
 				status.style.color = ERROR_COLOR;
 			} );

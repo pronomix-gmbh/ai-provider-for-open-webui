@@ -28,7 +28,7 @@ The plugin includes a dedicated settings page under **Settings > Open WebUI** wh
 == Installation ==
 
 1. Ensure the WordPress AI Client plugin is installed and activated.
-2. Upload this plugin to `/wp-content/plugins/ai-provider-for-openwebui/`.
+2. Upload this plugin to `/wp-content/plugins/ai-provider-for-open-webui/`.
 3. Activate the plugin in WordPress.
 4. Open **Settings > Open WebUI** and configure URL and API key.
 
@@ -60,11 +60,11 @@ Auto-fix fixable coding standard issues:
 
 == Internationalization ==
 
-Text domain: `ai-provider-for-openwebui`
+Text domain: `ai-provider-for-open-webui`
 
 Translation template:
 
-`languages/ai-provider-for-openwebui.pot`
+`languages/ai-provider-for-open-webui.pot`
 
 == Branding and Rights ==
 
