@@ -112,19 +112,6 @@ function check_wp_version(): bool {
 }
 
 /**
- * Loads plugin translations.
- *
- * @since 1.0.0
- */
-function load_textdomain(): void {
-	load_plugin_textdomain(
-		'ai-provider-for-openwebui',
-		false,
-		dirname( plugin_basename( AI_PROVIDER_FOR_OPENWEBUI_PLUGIN_FILE ) ) . '/languages/'
-	);
-}
-
-/**
  * Loads the OpenWebUI provider plugin.
  *
  * @since 1.0.0
@@ -141,8 +128,6 @@ function load(): void {
 	if ( ! check_php_version() || ! check_wp_version() ) {
 		return;
 	}
-
-	load_textdomain();
 
 	// Throw an error if the composer autoloader is not found.
 	if ( ! file_exists( AI_PROVIDER_FOR_OPENWEBUI_PLUGIN_DIR . 'vendor/autoload.php' ) ) {

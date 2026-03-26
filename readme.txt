@@ -72,7 +72,7 @@ This plugin includes the official Open WebUI logo for provider identification.
 
 Asset source and usage notes:
 
-`THIRD_PARTY_NOTICES.md`
+`third-party-notices.txt`
 
 == Frequently Asked Questions ==
 

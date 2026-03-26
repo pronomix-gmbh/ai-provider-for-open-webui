@@ -27,10 +27,13 @@ mkdir -p "${DIST_DIR}"
 rsync -a \
 	--exclude '.git/' \
 	--exclude '.github/' \
+	--exclude '.gitignore' \
 	--exclude 'vendor/' \
 	--exclude 'tests/' \
 	--exclude 'dist/' \
 	--exclude 'scripts/' \
+	--exclude 'phpcs.xml.dist' \
+	--exclude 'phpunit.xml.dist' \
 	--exclude '.phpunit.result.cache' \
 	--exclude '.DS_Store' \
 	--exclude '.idea/' \
@@ -40,6 +43,7 @@ rsync -a \
 (
 	cd "${STAGE_DIR}"
 	composer install --no-dev --prefer-dist --optimize-autoloader --no-interaction --no-progress
+	rm -f composer.json composer.lock
 )
 
 ZIP_PATH="${DIST_DIR}/${PLUGIN_DIR_NAME}-${VERSION}.zip"
