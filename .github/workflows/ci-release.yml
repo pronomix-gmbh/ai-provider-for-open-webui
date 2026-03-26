@@ -51,7 +51,7 @@ jobs:
         with:
           build-dir: ${{ env.PLUGIN_BUILD_DIR }}
           slug: ai-provider-for-openwebui
-          wp-version: latest
+          wp-version: trunk
           categories: plugin_repo
 
       - name: Build-Artefakt hochladen
